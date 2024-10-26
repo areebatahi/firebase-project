@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap');
+
+* {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: italic;
+    color: #3b3b3b;
+}
+
+.back {
+    background-image: url('https://img.pikbest.com/backgrounds/20220119/red-and-blue-gradient-light-effect-simple-theme-background_6241508.jpg!bw700');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-control {
+    border: 1px solid gray;
+}
+
+.form-control:focus {
+    box-shadow: 1px 1px 2px gray;
+    border: 1px solid rgb(44, 44, 44);
+}
+
+.size {
+    width: 150px;
+}
+
+.btnBlue {
+    background-color: blue;
+    color: #fff;
+}
+.btnBlue:hover {
+    background-color: rgb(27, 27, 247);
+    color: #fff;
+}
+
+.link {
+    text-decoration: none;
+    color: blue;
+}
+
+.btnGreen {
+    background-color: rgb(2, 66, 10);
+    color: #fff;
+}
+
+.btnGreen:hover {
+    background-color: rgb(2, 83, 12);
+    color: #fff;
+}

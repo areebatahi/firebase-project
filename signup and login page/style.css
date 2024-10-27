@@ -6,16 +6,17 @@
     font-weight: 600;
     font-style: italic;
     color: #3b3b3b;
+    overflow: hidden;
 }
 
 .back {
-    background-image: url('https://img.pikbest.com/backgrounds/20220119/red-and-blue-gradient-light-effect-simple-theme-background_6241508.jpg!bw700');
     background-size: cover;
     width: 100vw;
     height: 100vh;
 }
 
 .container {
+    margin-top: 90px;
     background-color: #fff;
     border-radius: 6px;
     width: fit-content;
@@ -42,6 +43,7 @@ h1 {
     background-color: blue;
     color: #fff;
 }
+
 .btnBlue:hover {
     background-color: rgb(27, 27, 247);
     color: #fff;

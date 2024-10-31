@@ -32,25 +32,26 @@
             <div class="mb-3 row p-2">
                 <label for="passward" class="col-sm-12 col-form-label">Password :</label>
                 <div class="col-sm-12">
-                    <input type="password" class="form-control" id="passward">
+                    <input type="password" class="form-control" id="password">
                 </div>
             </div>
             <div class="mb-3 row p-2">
                 <label for="ConfirmPassward" class="col-sm-12 col-form-label">Confirm Password :</label>
                 <div class="col-sm-12">
-                    <input type="ConfirmPassword" class="form-control" id="passward">
+                    <input type="password" class="form-control" id="confirmPassword">
                 </div>
             </div>
             <div class="mb-3 row p-2">
                 <div class="col-sm-12">
-                    <button type="button" class="btn btnBlue">SignUP</button>
+                    <button class="btn btnBlue" id="signUp">Sign Up</button>
+                    <p>Already have an account? <a href="signIn.html" id="link">sign In</a></p>
                 </div>
             </div>
-            <p>Already have an account? <a href="login.html" class="link">login</a></p>
         </form>
     </div>
 
-    <script src="app.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 
 </html>

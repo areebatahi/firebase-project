@@ -49,9 +49,22 @@ h1 {
     color: #fff;
 }
 
-.link {
+#link {
     text-decoration: none;
     color: blue;
+}
+
+#link:hover {
+    text-decoration: blue solid underline;
+}
+
+#link2 {
+    text-decoration: none;
+    color: rgb(2, 66, 10);
+}
+
+#link2:hover {
+    text-decoration: rgb(2, 66, 10) solid underline;
 }
 
 .btnGreen {
@@ -61,5 +74,33 @@ h1 {
 
 .btnGreen:hover {
     background-color: rgb(2, 83, 12);
+    color: #fff;
+}
+
+.forgetPassward {
+    color: rgb(2, 66, 10);
+}
+
+.forgetPassward:hover {
+    cursor: pointer;
+    text-decoration: rgb(2, 66, 10) solid underline;
+}
+table th, table td{
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 8px;
+}
+.d-flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.signOut_btn{
+    background-color: rgb(2, 66, 10);
+    color: #fff;
+}
+
+.signOut_btn:hover{
+    background-color: rgb(0, 87, 12);
     color: #fff;
 }

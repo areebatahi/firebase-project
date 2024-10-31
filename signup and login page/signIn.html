@@ -12,7 +12,7 @@
 
 <body>
     <div class="back p-5"
-        style="background-image: url('https://marketplace.canva.com/EAEbucQENfs/2/0/1600w/canva-dark-green-waves-all-business-linktree-background-tbs6SYB7UuA.jpg');">
+        style="background-image: url('https://marketplace.canva.com/EAEbucQENfs/2/0/1600w/-dark-green-waves-all-business-linktree-background-tbs6SYB7UuA.jpg');">
         <form class="container border p-3">
             <h1><img src="image/images-removebg-preview.png" class="size"></h1>
             <hr>
@@ -25,19 +25,18 @@
             <div class="mb-3 row p-2">
                 <label for="passward" class="col-sm-12 col-form-label">Password:</label>
                 <div class="col-sm-12">
-                    <input type="password" class="form-control" id="passward">
+                    <input type="password" class="form-control" id="password">
                 </div>
             </div>
-            <div class="mb-3 row p-2">
-                <div class="col-sm-12">
-                    <button type="button" class="btn btnGreen">Login</button>
-                </div>
+            <div class="mb-3 row m-2">
+                <p class="p-0 forgetPassward" id="">Forget Passward</p>
+                <button class="btn btnGreen col-sm-4" id="sign_in">sign In</button>
+                <p class="p-0">Don't have an account? <a href="index.html" id="link2">Sign Up</a></p>
             </div>
-            <p>Don't have an account? <a href="index.html" class="link" style="color: rgb(2, 66, 10);">Signup</a></p>
         </form>
     </div>
 
-    <script src="app.js"></script>
+    <script type="module" src="firebase.js"></script>
 </body>
 
 </html>

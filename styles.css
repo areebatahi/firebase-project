@@ -10,7 +10,7 @@
 }
 
 body{
-  background-color: #282A36;
+  background-color: #e1e1e1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@ body{
     padding: 20px;
     border-radius: 20px;
 }
-
+ 
 .card h2{
   margin-bottom: 10px;
 }
@@ -35,7 +35,7 @@ body{
 .card a.fp{
   width: 100%;
   display: flex;
-  color: #5881D0;
+  color: #1c19c7;
 }
 
 .login_register{
@@ -61,7 +61,7 @@ body{
 
 .login_register a.register{
   border-radius: 15px;
-  background: linear-gradient(90deg, #003A74, #006AD5);
+  background: linear-gradient(90deg, #ca596a, #c83349);
   color: white;
 }
 
@@ -83,7 +83,9 @@ body{
 .form input.email{
   margin-bottom: 15px;
 }
-
+.form input:focus{
+outline: 1px solid rgb(70, 70, 70);
+}
 .form input.pass{
   margin-bottom: 15px;
 }
@@ -93,16 +95,17 @@ body{
 }
 
 .login_btn{
+  cursor: pointer;
   font-size: 20px;
   color: white;
   border-radius: 15px;
   border: none;
-  background-color: #003A74;
+  background-color: #c83349;
   width: 100%;
   padding: 10px;
   margin-top: 15px;
   margin-bottom: 15px;
-  background: linear-gradient(-90deg, #003A74, #006AD5);
+  background: linear-gradient(-90deg, #c64b5e, #c83349);
   box-shadow: 1px 5px 9px rgba(211, 211, 211, .9);
 }
 
@@ -147,4 +150,8 @@ body{
       box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
       cursor: not-allowed;
     }
+  }
+
+  .d-flex{
+    margin-top: 250px;
   }

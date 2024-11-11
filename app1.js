@@ -1,4 +1,27 @@
-import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signOut, signInWithPopup, GoogleAuthProvider, provider, getFirestore, db, collection, addDoc, getDocs, doc, setDoc } from "./firebase.js"
+import {
+    auth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    sendEmailVerification,
+    signOut,
+    signInWithPopup,
+    GoogleAuthProvider,
+    provider,
+    getFirestore,
+    db,
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    setDoc,
+    updateDoc,
+    serverTimestamp,
+    arrayUnion,
+    arrayRemove,
+    deleteDoc
+} from "./firebase.js";
+
 //----------------------- Sign up ------------------------------
 let signUp = () => {
     let email = document.getElementById('email').value;
@@ -7,13 +30,41 @@ let signUp = () => {
     let emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     let passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
+    let name = document.getElementById('name').value;
+    let number = document.getElementById('number').value;
+    let userData = { email, password, name , number };
+    console.log(userData);
+
     if (emailRegex.test(email) && passwordRegex.test(password)) {
-        console.log("test");
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then(async (userCredential) => {
                 const user = userCredential.user;
                 console.log(user);
                 alert("Account created successfully");
+                window.location.pathname = "/post%20app/index.html"
+
+                // ________________________________Add Doc
+                // try {
+                //     const docRef = await addDoc(collection(db, "user"), {
+                //         ...userData,
+                //         uId: user.uid,
+                //     });
+                //     console.log("Document written with ID: ", docRef.uId);
+                // } catch (e) {
+                //     console.error("Error adding document: ", e);
+                // }
+
+                // ____________________________________Set Doc
+                try {
+                    await setDoc(doc(db, "users", user.uid), {
+                        ...userData,
+                        uId: user.uid,
+                    });
+                    console.log("Document written with ID: ", user.uid);
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                }
+
             })
             .catch((error) => {
                 console.log(error.message);
@@ -27,7 +78,7 @@ let signUp = () => {
     }
 
 }
-if (window.location.pathname == "/index.html") {
+if (window.location.pathname == "/") {
     let signUp_btn = document.getElementById("signUp_btn");
     signUp_btn.addEventListener("click", signUp);
 }
@@ -53,39 +104,28 @@ if (window.location.pathname == "/login.html") {
 }
 
 
-//------------------------- onAuthStateChanged ---------------------
+// //------------------------- onAuthStateChanged ---------------------
 // onAuthStateChanged(auth, (user) => {
 //     if (user) {
 //         console.log(user);
-//         window.location.pathname = "./post app/index.html"
+//         // window.location.pathname = "./post app/index.html"
 //     } else {
 //         console.log("User not found")
 //     }
 // });
 
-//-------------------------- signout -------------------------
-let sign_out = document.getElementById("sign_out")
-sign_out.addEventListener("click", () => {
-    signOut(auth).then(() => {
-        window.location.pathname == "../index.html"
-        console.log("Sign-out successful.")
-    }).catch((error) => {
-        console.log(error.code);
-    });
-})
 
-
-
-//-------------------------- send Mail -------------------------
+// //-------------------------- send Mail -------------------------
 // let sendMail = () => {
 //     sendEmailVerification(auth.currentUser)
 //   .then(() => {
 //     consol.log("Email verification sent!")
 //   });
 // }
+// if(window.location.pathname == '/sedMail.html'){
 // let verification = document.getElementById("verification");
 // verification.addEventListener("click", sendMail);
-
+// }
 
 //-------------------------- google Signup -------------------------
 let googleSignup = () => {
@@ -95,7 +135,8 @@ let googleSignup = () => {
             const token = credential.accessToken;
             const user = result.user;
             console.log(user);
-            window.location.pathname = "./post app/index.html"
+            // window.location.pathname = "/sedMail.html"
+            window.location.pathname = "/post%20app/index.html"
 
             try {
                 await setDoc(doc(db, "users", user.uid), {
@@ -116,7 +157,54 @@ let googleSignup = () => {
             console.log(email, credential, error.code);
         });
 }
-if (window.location.pathname == "/index.html") {
+if (window.location.pathname == "/") {
     let googleBtn = document.getElementById('googleBtn');
     googleBtn.addEventListener('click', googleSignup);
 }
+
+//-------------------------- signout -------------------------
+let sign_out = document.getElementById("sign_out");
+if (window.location.pathname == "/post%20app/index.html")
+    sign_out.addEventListener("click", () => {
+        signOut(auth).then(() => {
+            console.log("Sign-out successful.");
+            window.location.href = "http://127.0.0.1:5500/";
+        }).catch((error) => {
+            console.log(error.code);
+        });
+    });
+
+
+//______________ Getting user data from firestore _________________
+let getAllUsers = async () => {
+    const querySnapshot = await getDocs(collection(db, "users"));
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+    });
+}
+getAllUsers();
+
+let updateProfile = async () => {
+    // console.log("test");
+    let lname = document.getElementById("lname").value;
+    let fname = document.getElementById("fname").value;
+    let number = document.getElementById("number").value;
+    console.log(auth.currentUser.uid);
+    let id = auth.currentUser.uid;
+    try {
+        const washingtonRef = doc(db, "users", id);
+        await updateDoc(washingtonRef,
+            {
+                fname, lname,
+                number
+                // timestamp: serverTimestamp()
+            }
+        );
+        console.log("Updated");
+
+    } catch (e) {
+        console.log(e);
+    }
+};
+let update_btn = document.querySelector("#update_btn");
+update_btn.addEventListener("click", updateProfile);

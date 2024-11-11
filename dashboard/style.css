@@ -1,0 +1,282 @@
+#signUpFormContainer {
+    margin: 0 auto !important;
+    margin-top: 50px !important;
+}
+
+body {
+    background-color: #e1e1e1;
+}
+
+.text {
+    color: #c83349 !important;
+}
+
+.bg-color {
+    background-color: #c83349 !important;
+}
+
+.hidden {
+    display: none;
+}
+
+@font-face {
+    font-family: "RobotoSlab";
+    src: url('./fonts/RobotoSlab-VariableFont_wght.ttf');
+}
+
+* {
+    font-family: RobotoSlab;
+}
+
+.logo {
+    width: 85px;
+}
+
+.navbar {
+    background-color: #c83349 !important;
+}
+
+.navbar-brand {
+    color: #f9d5e5;
+}
+
+.navbar-brand:hover {
+    color: #f9d5e5;
+}
+
+.profile-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    /* Add a pointer cursor to indicate it's clickable */
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.postBtn,
+.editBtn {
+    background: linear-gradient(-90deg, #c64b5e, #c83349);
+    box-shadow: 1px 5px 9px rgba(211, 211, 211, .9);
+    color: #fff;
+}
+
+.postBtn:hover,
+.editBtn:hover {
+    color: #ffffff;
+    border: 2px solid #c83349;
+}
+
+.deleteBtn {
+    background-color: #c83349;
+    border: none;
+}
+
+.deleteBtn:hover {
+    border: 2px solid #c83349;
+}
+
+.swal2-confirm {
+    background-color: #c83349;
+}
+
+.images {
+    justify-content: space-around;
+}
+
+.bg-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+.selectedImg {
+    border: 2px solid #c83349;
+}
+
+.name-time {
+    font-style: normal;
+    font-weight: bold;
+
+}
+
+.time {
+    font-size: 12px;
+    color: #666;
+}
+
+.form-control,
+#signUpFormContainer {
+    border: 1px solid #c83349;
+}
+
+#signUpFormContainer {
+    box-shadow: 5px 5px 10px #f9d5e5;
+}
+
+.form-control:focus {
+    box-shadow: 10px 10px 15px #f9d5e5;
+    border: 1px #c83349 solid;
+}
+
+#gridCheck {
+    border: 1px solid #c83349;
+}
+
+#gridCheck:checked {
+    background-color: #c83349;
+    box-shadow: none;
+}
+
+.imgEdit {
+    width: 30px;
+}
+
+.editBtnImg {
+    position: absolute;
+    right: 0px;
+}
+
+.customBtn {
+    color: #c83349 !important;
+}
+
+.card {
+    box-shadow: 1px 2px 5px #666;
+}
+
+
+
+
+.button {
+    font-family:'Open Sans';
+    font-size: 16px;
+    font-weight:400;
+    display:inline-block;
+    color:#FFF;
+    border-radius: .25em;
+    text-shadow: -1px -1px 0px rgba(0,0,0,0.4);
+  }
+  
+  .primary {
+    line-height:40px;
+    transition:ease-in-out .2s;
+    padding: 0 16px;
+  }
+  
+  .primary:hover, .condensed:hover, .touch:hover {
+    transform:scale(1.02);
+    box-shadow:2px 2px 5px rgba(0,0,0,0.20), inset 0 0 0 99999px rgba(0,0,0,0.2);
+  }
+
+.condensed {
+    transition:ease-in-out .2s;
+    line-height:24px;
+    padding: 0 8px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+  }
+  
+  .touch {
+    transition:ease-in-out .2s;
+    line-height:40px;
+    width:40px;
+    padding: 0px;
+    text-align: center;
+  }
+  
+  .inlineIcon {}
+  
+  .edit:before, .save:before, .new:before, .cancel:before, .delete:before {
+    font-family: FontAwesome;
+    display: inline-block;
+    font-size:1rem;
+    padding-right:12px;
+    background:none;
+    color:#FFF;
+  }
+  
+  .condensed.edit:before, .condensed.save:before, .condensed.new:before, .condensed.cancel:before, .condensed.delete:before {
+     content:none;
+  }
+  
+  .touch.edit:before, .touch.save:before, .touch.new:before, .touch.cancel:before, .touch.delete:before {
+    width:100%;
+    text-align:center;
+    font-size:1.25rem;
+  }
+  
+  .inlineIcon.edit, .inlineIcon.save, .inlineIcon.new, .inlineIcon.cancel, .inlineIcon.delete {
+    background: transparent;
+  }
+  
+  .inlineIcon.edit:before, .inlineIcon.save:before, .inlineIcon.new:before, .inlineIcon.cancel:before, .inlineIcon.delete:before {
+    line-height:32px;
+    font-size:32px;
+    padding:4px 0px;
+  }
+  
+  .edit {
+    background: #3498db;
+    
+    &:before {
+      content: "\f040";
+    }
+  }
+  
+  .inlineIcon.edit:before {
+      color: #3498db;
+  }
+  
+  .save {
+    background: #8e44ad;
+    
+    &:before {
+      content: "\f0c7";
+    }
+  }
+  
+  .inlineIcon.save:before {
+      color: #8e44ad;
+  }
+  
+  .new {
+    background: #2ecc71;
+    
+    &:before {
+      content: "\f067";
+    }
+  }
+  
+  .inlineIcon.new:before {
+      color: #2ecc71;
+  }
+  
+  .cancel {
+    background: #555555;
+    
+    &:before {
+      content: "\f05e";
+    }
+  }
+  
+  .inlineIcon.cancel:before {
+      color: #555555;
+  }
+  
+  .delete {
+    background: #c0392b;
+    
+    &:before {
+      content: "\f1f8";
+    }
+  }
+  
+  .inlineIcon.delete:before {
+      color: #c0392b;
+  }

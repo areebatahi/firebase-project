@@ -1,4 +1,5 @@
-var firstName, lastName;
+import { name } from "../app1";
+document.getElementById('userName').innerHTML = name 
 var profilePhotoImg = document.getElementById("profilePhotoImg");
 var profilePhotoInput = document.getElementById("profilePhotoInput");
 
@@ -15,28 +16,6 @@ profilePhotoInput.addEventListener("change", function (e) {
     reader.readAsDataURL(file);
 });
 
-// var signUpForm = document.getElementById('signUpForm');
-
-// signUpForm.addEventListener('submit', function (event) {
-//     event.preventDefault();
-//      firstName = document.getElementById('inputFirstName').value;
-//      lastName = document.getElementById('inputLastName').value;
-
-//     var signUpFormContainer = document.getElementById('signUpFormContainer');
-//     var postApp = document.getElementById('postApp');
-
-//     signUpForm.reset();
-//     Swal.fire({
-//         position: "top-end",
-//         icon: "success",
-//         title: "Account created successfully!",
-//         showConfirmButton: false,
-//         timer: 1500,
-//     });
-//     signUpFormContainer.classList.add('hidden');
-//     postApp.classList.remove("hidden");
-// })
-
 var backgroundImg;
 function post() {
     var title = document.getElementById("title");
@@ -50,7 +29,7 @@ function post() {
        <div class="card-header d-flex">
        <img class="profile-photo" src="${profilePhotoImg.src}" />
        <div class="name-time d-flex flex-column">
-       ${firstName} ${lastName}
+       ${name}
         <div class="time">${currentTime}</div>
         </div>
         <div class="d-flex editBtnImg">

@@ -41,7 +41,7 @@ let signUp = () => {
                 const user = userCredential.user;
                 console.log(user);
                 alert("Account created successfully");
-                window.location.pathname = "/post%20app/index.html"
+                window.location.pathname = "/dashboard/index.html"
 
                 // ________________________________Add Doc
                 // try {
@@ -92,7 +92,7 @@ let login = () => {
         .then((userCredential) => {
             const user = userCredential.user;
             alert("Login successfully");
-            window.location.pathname = "./post app/index.html"
+            window.location.pathname = "/dashboard/index.html"
         })
         .catch((error) => {
             console.log(error.code);
@@ -136,7 +136,7 @@ let googleSignup = () => {
             const user = result.user;
             console.log(user);
             // window.location.pathname = "/sedMail.html"
-            window.location.pathname = "/post%20app/index.html"
+            window.location.pathname = "/dashboard/index.html"
 
             try {
                 await setDoc(doc(db, "users", user.uid), {
@@ -164,7 +164,7 @@ if (window.location.pathname == "/") {
 
 //-------------------------- signout -------------------------
 let sign_out = document.getElementById("sign_out");
-if (window.location.pathname == "/post%20app/index.html")
+if (window.location.pathname == "/dashboard/index.html")
     sign_out.addEventListener("click", () => {
         signOut(auth).then(() => {
             console.log("Sign-out successful.");
@@ -208,3 +208,6 @@ let updateProfile = async () => {
 };
 let update_btn = document.querySelector("#update_btn");
 update_btn.addEventListener("click", updateProfile);
+
+let name = document.getElementById('name').value;
+export{name}

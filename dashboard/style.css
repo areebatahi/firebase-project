@@ -18,6 +18,9 @@ body {
 .hidden {
     display: none;
 }
+.d-flex{
+    display: flex;
+}
 
 @font-face {
     font-family: "RobotoSlab";
@@ -28,10 +31,6 @@ body {
     font-family: RobotoSlab;
 }
 
-.logo {
-    width: 85px;
-}
-
 .navbar {
     background-color: #c83349 !important;
 }
@@ -40,13 +39,9 @@ body {
     color: #f9d5e5;
 }
 
-.navbar-brand:hover {
-    color: #f9d5e5;
-}
-
 .profile-photo {
     width: 50px;
-    height: 50px;
+    height: 60px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
@@ -144,6 +139,7 @@ body {
 }
 
 .customBtn {
+    background-color: #fff;
     color: #c83349 !important;
 }
 
@@ -151,10 +147,16 @@ body {
     box-shadow: 1px 2px 5px #666;
 }
 
+.nav-link{
+color: #e1e1e1;
+}
+.nav-link:hover{
+color: #e1e1e1;
+font-weight: bolder;
+}
 
 
-
-.button {
+/* .button {
     font-family:'Open Sans';
     font-size: 16px;
     font-weight:400;
@@ -279,4 +281,4 @@ body {
   
   .inlineIcon.delete:before {
       color: #c0392b;
-  }
+  } */

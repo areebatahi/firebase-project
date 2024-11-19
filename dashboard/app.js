@@ -1,5 +1,5 @@
-import { name } from "../app1";
-document.getElementById('userName').innerHTML = name 
+// import { name } from "../app1";
+// document.getElementById('userName').innerHTML = name 
 var profilePhotoImg = document.getElementById("profilePhotoImg");
 var profilePhotoInput = document.getElementById("profilePhotoInput");
 

@@ -32,16 +32,16 @@ let signUp = () => {
 
     let name = document.getElementById('name').value;
     let number = document.getElementById('number').value;
-    let userData = { email, password, name , number };
+    let userData = { email, password, name, number };
     console.log(userData);
 
     if (emailRegex.test(email) && passwordRegex.test(password)) {
         createUserWithEmailAndPassword(auth, email, password)
             .then(async (userCredential) => {
                 const user = userCredential.user;
-                console.log(user);
+                // console.log(user);
                 alert("Account created successfully");
-                window.location.pathname = "/dashboard/index.html"
+                window.location.pathname = "/login.html"
 
                 // ________________________________Add Doc
                 // try {
@@ -83,50 +83,6 @@ if (window.location.pathname == "/") {
     signUp_btn.addEventListener("click", signUp);
 }
 
-
-//----------------------- login ------------------------------
-let login = () => {
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('pass').value;
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            alert("Login successfully");
-            window.location.pathname = "/dashboard/index.html"
-        })
-        .catch((error) => {
-            console.log(error.code);
-        });
-}
-if (window.location.pathname == "/login.html") {
-    let login_btn = document.getElementById("login_btn");
-    login_btn.addEventListener("click", login);
-}
-
-
-// //------------------------- onAuthStateChanged ---------------------
-// onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//         console.log(user);
-//         // window.location.pathname = "./post app/index.html"
-//     } else {
-//         console.log("User not found")
-//     }
-// });
-
-
-// //-------------------------- send Mail -------------------------
-// let sendMail = () => {
-//     sendEmailVerification(auth.currentUser)
-//   .then(() => {
-//     consol.log("Email verification sent!")
-//   });
-// }
-// if(window.location.pathname == '/sedMail.html'){
-// let verification = document.getElementById("verification");
-// verification.addEventListener("click", sendMail);
-// }
-
 //-------------------------- google Signup -------------------------
 let googleSignup = () => {
     signInWithPopup(auth, provider)
@@ -135,9 +91,7 @@ let googleSignup = () => {
             const token = credential.accessToken;
             const user = result.user;
             console.log(user);
-            // window.location.pathname = "/sedMail.html"
             window.location.pathname = "/dashboard/index.html"
-
             try {
                 await setDoc(doc(db, "users", user.uid), {
                     uid: user.uid,
@@ -147,6 +101,7 @@ let googleSignup = () => {
                     number: user.phoneNumber
                 });
                 console.log("Document written with ID: ", user.uid);
+                // console.log(user.email,user.password);
             }
             catch (e) {
                 console.error("Error adding document: ", e);
@@ -162,7 +117,50 @@ if (window.location.pathname == "/") {
     googleBtn.addEventListener('click', googleSignup);
 }
 
-//-------------------------- signout -------------------------
+// //----------------------- login ------------------------------
+let login = () => {
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('pass').value;
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // const user = userCredential.user;
+            alert("Login successfully");
+            window.location.pathname = "/dashboard/index.html"
+        })
+        .catch((error) => {
+            console.log(error.code);
+        });
+}
+if (window.location.pathname == "/login.html") {
+let login_btn = document.getElementById("login_btn");
+login_btn.addEventListener("click", login);
+}
+
+
+//------------------------- onAuthStateChanged ---------------------
+// onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//         console.log(user);
+//         window.location.pathname = "./post app/index.html"
+//     } else {
+//         console.log("User not found")
+//     }
+// });
+
+
+//-------------------------- send Mail -------------------------
+// let sendMail = () => {
+//     sendEmailVerification(auth.currentUser)
+//   .then(() => {
+//     consol.log("Email verification sent!")
+//   });
+// }
+// if(window.location.pathname == '/sedMail.html'){
+// let verification = document.getElementById("verification");
+// verification.addEventListener("click", sendMail);
+// }
+
+// //-------------------------- signout -------------------------
 let sign_out = document.getElementById("sign_out");
 if (window.location.pathname == "/dashboard/index.html")
     sign_out.addEventListener("click", () => {
@@ -184,30 +182,29 @@ let getAllUsers = async () => {
 }
 getAllUsers();
 
-let updateProfile = async () => {
-    // console.log("test");
-    let lname = document.getElementById("lname").value;
-    let fname = document.getElementById("fname").value;
-    let number = document.getElementById("number").value;
-    console.log(auth.currentUser.uid);
-    let id = auth.currentUser.uid;
-    try {
-        const washingtonRef = doc(db, "users", id);
-        await updateDoc(washingtonRef,
-            {
-                fname, lname,
-                number
-                // timestamp: serverTimestamp()
-            }
-        );
-        console.log("Updated");
+// let updateProfile = async () => {
+//     console.log("test");
+//     let name = document.getElementById("name").value;
+//     let number = document.getElementById("number").value;
+//     console.log(auth.currentUser.uid);
+//     let id = auth.currentUser.uid;
+//     try {
+//         const washingtonRef = doc(db, "users", id);
+//         await updateDoc(washingtonRef,
+//             {
+//                 name,
+//                 number
+//                 // timestamp: serverTimestamp()
+//             }
+//         );
+//         console.log("Updated");
 
-    } catch (e) {
-        console.log(e);
-    }
-};
-let update_btn = document.querySelector("#update_btn");
-update_btn.addEventListener("click", updateProfile);
+//     } catch (e) {
+//         console.log(e);
+//     }
+// };
+// let update_btn = document.querySelector("#update_btn");
+// update_btn.addEventListener("click", updateProfile);
 
-let name = document.getElementById('name').value;
-export{name}
+// let name = document.getElementById('name').value;
+// export{name}
